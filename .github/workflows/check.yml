@@ -1,0 +1,33 @@
+name: evgrass-check
+on:   
+  - push
+  - pull_request       
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:       
+      - uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Install
+        run: make setup
+
+      - name: Run linter
+        run: make lint
+
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
+        run: make test
+
+      - name: Run test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.6.0
+        # Add Code Climate secret key
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          coverageLocations: ${{github.workplace}}/build/logs/clover.xml:clover
+          debug: true
