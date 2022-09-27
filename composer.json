@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "hexlet/code",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -37,6 +37,8 @@
         }
     },
     "scripts": {
+        "phpcs": "phpcs .",
+        "phpcbf": "phpcbf",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
