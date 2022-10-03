@@ -15,7 +15,9 @@
     </head>
     <body>
         <div id="app">
-            @include('layouts.navigation')
+            <header class="fixed w-full">
+                @include('layouts.navigation')
+            </header>
 
             <!-- Page Heading -->
             @if (isset($header))
