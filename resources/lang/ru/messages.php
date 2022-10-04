@@ -16,6 +16,14 @@ return [
     'Already registered?' => 'Уже зарегистрированы?',
     'Reset Password' => 'Сброс пароля',
 
+    'Login' => 'Вход',
+    'Logout' => 'Выход',
+    'Registers' => 'Регистрация',
+
+    'Tasks' => 'Задачи',
+    'Statuses' => 'Статусы',
+    'Labels' => 'Метки',
+
     'Verify Your Email Address' => 'Проверьте свой адрес электронной почты',
     'A fresh verification link has been sent to your email address.' => 'На ваш адрес электронной почты была отправлена ​​новая ссылка для подтверждения.',
     'Before proceeding, please check your email for a verification link.' => 'Прежде чем продолжить, проверьте свою электронную почту на наличие ссылки для подтверждения.',
@@ -25,10 +33,7 @@ return [
 
     'Send Password Reset Link' => 'Отправить ссылку для сброса пароля',
     'Toggle navigation' => 'Переключить навигацию',
-    'Logout' => 'Выход',
     
-    'Tasks' => 'Задачи',
-    'Statuses' => 'Статусы',
     'Status added successfully!' => 'Статус успешно создан',
     'Dashboard' => 'Панель',
     'You are logged in!' => 'Вы вошли в систему!',
@@ -60,7 +65,6 @@ return [
     'Task deleted successfully!' => 'Задача успешно удалена',
     'View a task' => 'Просмотр задачи',
     'Confirm deletion' => 'Подтвердите удаление',
-    'Labels' => 'Метки',
     'Add label' => 'Создать метку',
     'No labels yet ...' => 'Меток пока нет ...',
     'Add new label' => 'Создать метку',
@@ -69,7 +73,6 @@ return [
     'Edit label' => 'Изменение метки',
     'Label edited successfully!' => 'Метка успешно изменена',
     'Label deleted successfully!' => 'Метка успешно удалена',
-    'Labels' => 'Метки',
     'Greetings from Hexlet!' => 'Привет от Хекслета!',
     'Practical programming courses' => 'Практические курсы по программированию',
     'To learn more' => 'Узнать больше',
@@ -80,7 +83,6 @@ return [
     'No tasks yet ...' => 'Задач пока нет ...',
     'Refresh' => 'Обновить',
     'Сreate' => 'Создать',
-    'Registers' => 'Зарегистрировать',
     'Action is not possible!' => 'Действие не возможно',
     'Enter' => 'Войти',
     'Are you sure' => 'Вы уверены?',
