@@ -11,7 +11,7 @@ setup:
 	touch database/database.sqlite
 	php artisan migrate
 	php artisan db:seed
-	npm install && npm run
+	npm install && npm run build
 
 watch:
 	npm run watch
