@@ -24,6 +24,11 @@ return [
     'Statuses' => 'Статусы',
     'Labels' => 'Метки',
 
+    'Greetings from Hexlet!' => 'Привет от Хекслета!',
+    'This is a simple task manager in Laravel' => 'Это простой менеджер задач на Laravel',
+    'Push to me' => 'Нажми меня',
+    'To learn more' => 'Узнать больше',
+
     'Verify Your Email Address' => 'Проверьте свой адрес электронной почты',
     'A fresh verification link has been sent to your email address.' => 'На ваш адрес электронной почты была отправлена ​​новая ссылка для подтверждения.',
     'Before proceeding, please check your email for a verification link.' => 'Прежде чем продолжить, проверьте свою электронную почту на наличие ссылки для подтверждения.',
@@ -33,7 +38,7 @@ return [
 
     'Send Password Reset Link' => 'Отправить ссылку для сброса пароля',
     'Toggle navigation' => 'Переключить навигацию',
-    
+    'Practical programming courses' => 'Практические курсы по программированию',
     'Status added successfully!' => 'Статус успешно создан',
     'Dashboard' => 'Панель',
     'You are logged in!' => 'Вы вошли в систему!',
@@ -73,9 +78,6 @@ return [
     'Edit label' => 'Изменение метки',
     'Label edited successfully!' => 'Метка успешно изменена',
     'Label deleted successfully!' => 'Метка успешно удалена',
-    'Greetings from Hexlet!' => 'Привет от Хекслета!',
-    'Practical programming courses' => 'Практические курсы по программированию',
-    'To learn more' => 'Узнать больше',
     'Status' => 'Статус',
     'Author' => 'Автор',
     'Executor' => 'Исполнитель',
