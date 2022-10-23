@@ -11,6 +11,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "laravelcollective/html": "^6.3",
         "psr/log": "^1.0|^2.0|^3.0",
         "rollbar/rollbar": "^3.1",
         "rollbar/rollbar-laravel": "^7.2",
