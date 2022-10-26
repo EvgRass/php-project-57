@@ -63,7 +63,7 @@ class TaskStatusController extends Controller
             $taskStatus->delete();
             flash(__('messages.Status deleted successfully!'))->success();
         } else {
-            flash(__('messages.Failed to delete status'))->danger();
+            flash(__('messages.Failed to delete status'))->error();
         }
 
         return redirect()->route('task_statuses.index');
