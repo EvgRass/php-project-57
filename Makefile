@@ -2,7 +2,7 @@ start:
 	php artisan serve --host 0.0.0.0
 
 start-frontend:
-	npm run dev
+	npm run build
 
 setup:
 	composer install
@@ -12,9 +12,6 @@ setup:
 	php artisan migrate
 	php artisan db:seed
 	npm install && npm run build
-
-watch:
-	npm run watch
 
 migrate:
 	php artisan migrate

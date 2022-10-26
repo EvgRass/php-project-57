@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Один пользователь может выполнять много задач.
+    // В модели задач Task::class связь строится по полю created_by_id
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'created_by_id');
+    }
 }

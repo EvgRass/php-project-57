@@ -24,6 +24,7 @@ return [
     'Statuses' => 'Статусы',
     'Labels' => 'Метки',
     'Add status' => 'Создать статус',
+    'Add task' => 'Создать задачу',
 
     'Greetings from Hexlet!' => 'Привет от Хекслета!',
     'This is a simple task manager in Laravel' => 'Это простой менеджер задач на Laravel',
@@ -45,9 +46,20 @@ return [
     'Refresh' => 'Обновить',
     'Status edited successfully!' => 'Статус успешно изменён',
     'Status deleted successfully!' => 'Статус успешно удалён',
-
-    'No statuses yet ...' => 'Статусов пока нет...',
+    'Tasks' => 'Задачи',
+    'Status' => 'Статус',
+    'Author' => 'Автор',
+    'Executor' => 'Исполнитель',
+    'Description' => 'Описание',
+    'Task added successfully!' => 'Задача успешно создана',
+    'View a task' => 'Просмотр задачи',
+    'Changing a task' => 'Изменение задачи',
+    'Task edited successfully!' => 'Задача успешно изменена',
+    'Task deleted successfully!' => 'Задача успешно удалена',
+    'Failed to delete status' => 'Не удалось удалить статус',
     
+
+    'No statuses yet ...' => 'Статусов пока нет...',    
     'To learn more' => 'Узнать больше',
     'Verify Your Email Address' => 'Проверьте свой адрес электронной почты',
     'A fresh verification link has been sent to your email address.' => 'На ваш адрес электронной почты была отправлена ​​новая ссылка для подтверждения.',
@@ -60,27 +72,17 @@ return [
     'Practical programming courses' => 'Практические курсы по программированию',
     'Dashboard' => 'Панель',
     'You are logged in!' => 'Вы вошли в систему!',    
-    
     'Main page' => 'Главная страница',
     'Add new status' => 'Создать новый статус',
     'Send' => 'Отправить',
     'Enter status' => 'Введите статус',
-    
-    
-    'Tasks' => 'Задачи',
-    'Add task' => 'Создать задачу',
-    'Description' => 'Описание',
     'User' => 'Пользователь',
     'Assigned' => 'Исполнитель',
-    'Status' => 'Статус',
     'Add new task' => 'Создать задачу',
     'Enter task name' => 'Имя задачи',
     'Enter description' => 'Описание',
     'Task added successfully!' => 'Задача успешно создана',
     'Edit Task' => 'Редактировать задачу',
-    'Task edited successfully!' => 'Задача успешно изменена',
-    'Task deleted successfully!' => 'Задача успешно удалена',
-    'View a task' => 'Просмотр задачи',
     'Confirm deletion' => 'Подтвердите удаление',
     'Add label' => 'Создать метку',
     'No labels yet ...' => 'Меток пока нет ...',
@@ -90,13 +92,8 @@ return [
     'Edit label' => 'Изменение метки',
     'Label edited successfully!' => 'Метка успешно изменена',
     'Label deleted successfully!' => 'Метка успешно удалена',
-    'Status' => 'Статус',
-    'Author' => 'Автор',
-    'Executor' => 'Исполнитель',
     'Apply' => 'Применить',
-    'No tasks yet ...' => 'Задач пока нет ...',
-    
-    
+    'No tasks yet ...' => 'Задач пока нет ...',    
     'Action is not possible!' => 'Действие не возможно',
     'Enter' => 'Войти',
 ];
