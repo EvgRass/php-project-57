@@ -26,6 +26,12 @@
     <div class="mt-2">{{ Form::label('assigned_to_id', __('messages.Executor')) }}</div>
     <div>{{ Form::select('assigned_to_id', $users, $userAssignedToSelected, ['placeholder' => '----------', 'class' => 'rounded border-gray-300 w-1/3']) }}</div>
     
+    <div class="mt-2">{{ Form::label('labels', __('messages.Labels')) }}</div>
+    <div>{{ Form::select('labels', $labels, $labelsSelected, [  'multiple' => 'multiple', 
+                                                                'name'=>'labels[]', 
+                                                                'class' => 'rounded border-gray-300 w-1/3 h-32']) }}
+    </div>
+    
     <div class="mt-2">{{ Form::submit(__('messages.Refresh'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded']) }}</div>
 {{ Form::close() }}
 

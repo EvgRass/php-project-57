@@ -25,6 +25,7 @@ return [
     'Labels' => 'Метки',
     'Add status' => 'Создать статус',
     'Add task' => 'Создать задачу',
+    'Add label' => 'Создать метку',
 
     'Greetings from Hexlet!' => 'Привет от Хекслета!',
     'This is a simple task manager in Laravel' => 'Это простой менеджер задач на Laravel',
@@ -57,7 +58,12 @@ return [
     'Task edited successfully!' => 'Задача успешно изменена',
     'Task deleted successfully!' => 'Задача успешно удалена',
     'Failed to delete status' => 'Не удалось удалить статус',
-    
+    'Label added successfully!' => 'Метка успешно создана',
+    'Changing a label' => 'Изменение метки',
+    'Label edited successfully!' => 'Метка успешно изменена',
+    'Label deleted successfully!' => 'Метка успешно удалена',
+    'Failed to delete label!' => 'Не удалось удалить метку',
+
 
     'No statuses yet ...' => 'Статусов пока нет...',    
     'To learn more' => 'Узнать больше',
@@ -84,14 +90,9 @@ return [
     'Task added successfully!' => 'Задача успешно создана',
     'Edit Task' => 'Редактировать задачу',
     'Confirm deletion' => 'Подтвердите удаление',
-    'Add label' => 'Создать метку',
     'No labels yet ...' => 'Меток пока нет ...',
     'Add new label' => 'Создать метку',
     'Enter label' => 'Введите название метки',
-    'Label added successfully!' => 'Метка успешно создана',
-    'Edit label' => 'Изменение метки',
-    'Label edited successfully!' => 'Метка успешно изменена',
-    'Label deleted successfully!' => 'Метка успешно удалена',
     'Apply' => 'Применить',
     'No tasks yet ...' => 'Задач пока нет ...',    
     'Action is not possible!' => 'Действие не возможно',

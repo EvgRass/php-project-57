@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\TaskStatus;
+use App\Models\Label;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,8 @@ class TaskController extends Controller
         $task = new Task();
         $taskStatuses = TaskStatus::orderBy('id')->pluck('name', 'id')->all();
         $users = User::pluck('name', 'id')->all();
-        return view('tasks.create', compact('task', 'taskStatuses', 'users'));
+        $labels = Label::orderBy('id')->pluck('name', 'id')->all();
+        return view('tasks.create', compact('task', 'taskStatuses', 'users', 'labels'));
     }
 
     public function store(Request $request)
@@ -45,6 +47,7 @@ class TaskController extends Controller
 
         $task = $user->tasks()->make($data);
         $task->save();
+        $task->labels()->sync($request->labels);
 
         flash(__('messages.Task added successfully!'))->success();
 
@@ -63,12 +66,16 @@ class TaskController extends Controller
 
         $taskStatusesSelected = $task->status->id ?? null;
         $userAssignedToSelected = $task->assignedTo->id ?? null;
+        $labels = Label::pluck('name', 'id')->all();
+        $labelsSelected = $task->labels()->get();
 
         return view('tasks.edit', compact(  'task', 
                                             'taskStatuses', 
                                             'users', 
                                             'taskStatusesSelected', 
-                                            'userAssignedToSelected'
+                                            'userAssignedToSelected',
+                                            'labels',
+                                            'labelsSelected',
                                         ));
     }
 
@@ -82,6 +89,7 @@ class TaskController extends Controller
         ]);
 
         $task->fill($data);
+        $task->labels()->sync($request->labels);
         $task->save();
     
         flash(__('messages.Task edited successfully!'))->success();

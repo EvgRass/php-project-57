@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskStatusController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\LabelController;
 
 require __DIR__.'/auth.php';
 
@@ -25,3 +26,4 @@ Route::redirect('/dashboard', '/', 301);
 
 Route::resource('task_statuses', TaskStatusController::class)->except('show');
 Route::resource('tasks', TaskController::class);
+Route::resource('labels', LabelController::class)->except('show');
