@@ -63,7 +63,7 @@ return [
     'Label edited successfully!' => 'Метка успешно изменена',
     'Label deleted successfully!' => 'Метка успешно удалена',
     'Failed to delete label!' => 'Не удалось удалить метку',
-
+    'Apply' => 'Применить',
 
     'No statuses yet ...' => 'Статусов пока нет...',    
     'To learn more' => 'Узнать больше',
@@ -93,7 +93,6 @@ return [
     'No labels yet ...' => 'Меток пока нет ...',
     'Add new label' => 'Создать метку',
     'Enter label' => 'Введите название метки',
-    'Apply' => 'Применить',
     'No tasks yet ...' => 'Задач пока нет ...',    
     'Action is not possible!' => 'Действие не возможно',
     'Enter' => 'Войти',

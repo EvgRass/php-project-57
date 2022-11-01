@@ -8,6 +8,9 @@ use App\Models\TaskStatus;
 use App\Models\Label;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -16,10 +19,28 @@ class TaskController extends Controller
         $this->authorizeResource(Task::class);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::orderBy('id')->with(['status', 'createdBy'])->paginate(15);
-        return view('tasks.index', compact('tasks'));
+        $statusIds = Task::select('status_id')->distinct()->get();
+        $taskStatuses = TaskStatus::whereIn('id', $statusIds)->pluck('name', 'id')->all();
+
+        $usersIdCreated = Task::select('created_by_id')->distinct()->get();
+        $usersCreated = User::whereIn('id', $usersIdCreated)->pluck('name', 'id')->all();
+        
+        $usersIdAssigned = Task::select('assigned_to_id')->distinct()->get();
+        $usersAssigned = User::whereIn('id', $usersIdAssigned)->pluck('name', 'id')->all();
+        
+        $tasks = QueryBuilder::for(Task::class)
+                                ->allowedFilters([
+                                    AllowedFilter::exact('status_id'),
+                                    AllowedFilter::exact('created_by_id'),
+                                    AllowedFilter::exact('assigned_to_id'),
+                                ])
+                                ->orderBy('id')
+                                ->paginate(15);
+        $filter = $request->get('filter');
+        
+        return view('tasks.index', compact('tasks', 'taskStatuses', 'usersAssigned', 'usersCreated', 'filter'));
     }
 
     public function create()

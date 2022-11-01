@@ -3,6 +3,15 @@
 @section('content')
     <h1 class="mb-5">{{ __('messages.Tasks') }}</h1>
 
+    <div>
+    {{Form::open([ 'method' => 'GET'])}}
+        {{Form::select('filter[status_id]', ['' => __('messages.Status')] + $taskStatuses, $filter['status_id'] ?? null, ['class' => 'rounded border-gray-300'])}}
+        {{Form::select('filter[created_by_id]', ['' => __('messages.Author')] + $usersCreated, $filter['created_by_id'] ?? null, ['class' => 'ml-2 rounded border-gray-300'])}}
+        {{Form::select('filter[assigned_to_id]', ['' => __('messages.Executor')] + $usersAssigned, $filter['assigned_to_id'] ?? null, ['class' => 'ml-2 rounded border-gray-300'])}}
+        {{Form::submit(__('messages.Apply'), ['class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2'])}}
+    {{Form::close()}}
+    </div>
+
     @can('create', App\Models\Task::class)
     <div>
         <a href="/tasks/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

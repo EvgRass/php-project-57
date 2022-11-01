@@ -15,6 +15,7 @@
         "psr/log": "^1.0|^2.0|^3.0",
         "rollbar/rollbar": "^3.1",
         "rollbar/rollbar-laravel": "^7.2",
+        "spatie/laravel-query-builder": "^5.0",
         "squizlabs/php_codesniffer": "^3.7"
     },
     "require-dev": {
