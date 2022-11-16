@@ -13,8 +13,8 @@ class TaskStatusControllerTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
-    private $factoryData;
-    private $status;
+    private array $factoryData;
+    private TaskStatus $status;
 
     protected function setUp(): void
     {

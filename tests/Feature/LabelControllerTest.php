@@ -13,7 +13,7 @@ class LabelControllerTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
-    private $factoryData;
+    private array $factoryData;
     private Label $label;
 
     protected function setUp(): void

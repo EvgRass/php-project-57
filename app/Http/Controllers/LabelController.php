@@ -77,7 +77,7 @@ class LabelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Label  $label
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Label $label)
@@ -98,7 +98,7 @@ class LabelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Label $label
      * @return \Illuminate\Http\Response
      */
     public function destroy(Label $label)

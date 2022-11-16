@@ -13,7 +13,7 @@ class TaskControllerTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
-    private $factoryData;
+    private array $factoryData;
     private Task $task;
 
     protected function setUp(): void
