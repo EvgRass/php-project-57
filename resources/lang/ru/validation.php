@@ -169,9 +169,6 @@ return [
     |
     */
 
-    'attributes' => [
-                    ['password' => 'Пароль',
-                    'name' => 'Имя']
-                ],
+    'attributes' => ['password' => 'Пароль'],
 
 ];
