@@ -91,14 +91,14 @@ class TaskController extends Controller
         $labelsSelected = $task->labels()->get();
 
         return view('tasks.edit', compact(
-                                            'task',
-                                            'taskStatuses',
-                                            'users',
-                                            'taskStatusesSelected',
-                                            'userAssignedToSelected',
-                                            'labels',
-                                            'labelsSelected',
-                                        ));
+            'task',
+            'taskStatuses',
+            'users',
+            'taskStatusesSelected',
+            'userAssignedToSelected',
+            'labels',
+            'labelsSelected',
+        ));
     }
 
     public function update(Request $request, Task $task)
@@ -115,7 +115,7 @@ class TaskController extends Controller
         $task->save();
 
         flash(__('messages.Task edited successfully!'))->success();
-    
+
         return redirect()->route('tasks.index');
     }
 
@@ -123,7 +123,7 @@ class TaskController extends Controller
     {
         $task->delete();
         flash(__('messages.Task deleted successfully!'))->success();
-    
+
         return redirect()->route('tasks.index');
     }
 }
