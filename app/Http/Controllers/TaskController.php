@@ -26,10 +26,10 @@ class TaskController extends Controller
 
         $usersIdCreated = Task::select('created_by_id')->distinct()->get();
         $usersCreated = User::whereIn('id', $usersIdCreated)->pluck('name', 'id')->all();
-        
+
         $usersIdAssigned = Task::select('assigned_to_id')->distinct()->get();
         $usersAssigned = User::whereIn('id', $usersIdAssigned)->pluck('name', 'id')->all();
-        
+
         $tasks = QueryBuilder::for(Task::class)
                                 ->allowedFilters([
                                     AllowedFilter::exact('status_id'),
@@ -39,7 +39,7 @@ class TaskController extends Controller
                                 ->orderBy('id')
                                 ->paginate(15);
         $filter = $request->get('filter');
-        
+
         return view('tasks.index', compact('tasks', 'taskStatuses', 'usersAssigned', 'usersCreated', 'filter'));
     }
 
@@ -76,9 +76,9 @@ class TaskController extends Controller
     }
 
     public function show(Task $task)
-	{
-		return view('tasks.show', compact('task'));
-	}
+    {
+        return view('tasks.show', compact('task'));
+    }
 
     public function edit(Task $task)
     {
@@ -90,10 +90,11 @@ class TaskController extends Controller
         $labels = Label::pluck('name', 'id')->all();
         $labelsSelected = $task->labels()->get();
 
-        return view('tasks.edit', compact(  'task', 
-                                            'taskStatuses', 
-                                            'users', 
-                                            'taskStatusesSelected', 
+        return view('tasks.edit', compact(
+                                            'task',
+                                            'taskStatuses',
+                                            'users',
+                                            'taskStatusesSelected',
                                             'userAssignedToSelected',
                                             'labels',
                                             'labelsSelected',
@@ -112,7 +113,7 @@ class TaskController extends Controller
         $task->fill($data);
         $task->labels()->sync($request->labels);
         $task->save();
-    
+
         flash(__('messages.Task edited successfully!'))->success();
     
         return redirect()->route('tasks.index');

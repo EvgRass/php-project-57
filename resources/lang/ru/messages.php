@@ -41,7 +41,7 @@ return [
     'Label exists' => 'Метка с таким именем уже существует',
     'Status exists' => 'Статус с таким именем уже существует',
     'Task exists' => 'Задача с таким именем уже существует',
-    
+
     'status_new' => 'новый',
     'status_in_work' => 'в работе',
     'on_testing' => 'на тестировании',
@@ -68,7 +68,7 @@ return [
     'Failed to delete label!' => 'Не удалось удалить метку',
     'Apply' => 'Применить',
 
-    'No statuses yet ...' => 'Статусов пока нет...',    
+    'No statuses yet ...' => 'Статусов пока нет...',
     'To learn more' => 'Узнать больше',
     'Verify Your Email Address' => 'Проверьте свой адрес электронной почты',
     'A fresh verification link has been sent to your email address.' => 'На ваш адрес электронной почты была отправлена ​​новая ссылка для подтверждения.',
@@ -80,7 +80,7 @@ return [
     'Toggle navigation' => 'Переключить навигацию',
     'Practical programming courses' => 'Практические курсы по программированию',
     'Dashboard' => 'Панель',
-    'You are logged in!' => 'Вы вошли в систему!',    
+    'You are logged in!' => 'Вы вошли в систему!',
     'Main page' => 'Главная страница',
     'Add new status' => 'Создать новый статус',
     'Send' => 'Отправить',
@@ -95,7 +95,7 @@ return [
     'No labels yet ...' => 'Меток пока нет ...',
     'Add new label' => 'Создать метку',
     'Enter label' => 'Введите название метки',
-    'No tasks yet ...' => 'Задач пока нет ...',    
+    'No tasks yet ...' => 'Задач пока нет ...',
     'Action is not possible!' => 'Действие не возможно',
     'Enter' => 'Войти',
 ];

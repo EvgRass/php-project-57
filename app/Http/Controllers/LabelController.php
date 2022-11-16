@@ -89,9 +89,9 @@ class LabelController extends Controller
 
         $label->fill($data);
         $label->save();
-    
+
         flash(__('messages.Label edited successfully!'))->success();
-    
+
         return redirect()->route('labels.index');
     }
 
@@ -110,7 +110,7 @@ class LabelController extends Controller
 
         $label->delete();
         flash(__('messages.Label deleted successfully!'))->success();
-    
+
         return redirect()->route('labels.index');
     }
 }
