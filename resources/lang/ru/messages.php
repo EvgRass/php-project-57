@@ -38,6 +38,9 @@ return [
     'Сreate' => 'Создать',
     'Status added successfully!' => 'Статус успешно создан',
     'Are you sure?' => 'Вы уверены?',
+    'Label exists' => 'Метка с таким именем уже существует',
+    'Status exists' => 'Статус с таким именем уже существует',
+    'Task exists' => 'Задача с таким именем уже существует',
     
     'status_new' => 'новый',
     'status_in_work' => 'в работе',
@@ -87,7 +90,6 @@ return [
     'Add new task' => 'Создать задачу',
     'Enter task name' => 'Имя задачи',
     'Enter description' => 'Описание',
-    'Task added successfully!' => 'Задача успешно создана',
     'Edit Task' => 'Редактировать задачу',
     'Confirm deletion' => 'Подтвердите удаление',
     'No labels yet ...' => 'Меток пока нет ...',

@@ -49,9 +49,9 @@ class LabelController extends Controller
         }
 
         $data = $this->validate($request, [
-            'label_name' => 'required|unique:labels,name',
+            'name' => 'required|unique:labels,name',
             'description' => 'nullable',
-        ]);
+        ], ['unique' => __('messages.Label exists')]);
 
         $label = new Label();
         $label->fill($data);

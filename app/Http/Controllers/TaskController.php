@@ -60,11 +60,11 @@ class TaskController extends Controller
         }
 
         $data = $this->validate($request, [
-            'task_name' => 'required|unique:tasks,name',
+            'name' => 'required|unique:tasks,name',
             'status_id' => 'required',
             'assigned_to_id' => 'nullable',
             'description' => 'nullable'
-        ]);
+        ], ['unique' => __('messages.Task exists')]);
 
         $task = $user->tasks()->make($data);
         $task->save();
