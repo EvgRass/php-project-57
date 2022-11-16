@@ -49,7 +49,7 @@ class LabelController extends Controller
         }
 
         $data = $this->validate($request, [
-            'name' => 'required',
+            'label_name' => 'required|unique:labels,name',
             'description' => 'nullable',
         ]);
 

@@ -136,7 +136,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => 'Статус с таким именем уже существует',
+    'unique' => ':attribute с таким именем уже существует',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -153,8 +153,14 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'label_name' => [
+            'required' => 'Метка с таким именем уже существует',
+        ],
+        'taskStatus_name' => [
+            'required' => 'Статус с таким именем уже существует',
+        ],
+        'task_name' => [
+            'required' => 'Задача с таким именем уже существует',
         ],
     ],
 
