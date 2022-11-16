@@ -65,7 +65,7 @@ class LabelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Label $label
      * @return \Illuminate\Http\Response
      */
     public function edit(Label $label)
@@ -103,7 +103,7 @@ class LabelController extends Controller
      */
     public function destroy(Label $label)
     {
-        if ($label->tasks->count() !== 0) {
+        if ($label->tasks()->count() !== 0) {
             flash(__('messages.Failed to delete label!'))->error();
             return redirect()->route('labels.index');
         }
