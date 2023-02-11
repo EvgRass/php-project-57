@@ -27,7 +27,7 @@ class TaskControllerTest extends TestCase
     public function testIndex(): void
     {
         // Создаем 2 задачи и передаем параметры фильтрации
-        $tasks = Task::factory()->count(2)->create()->toArray();
+        $tasks = Task::factory()->count(2)->create();
 
         $response = $this->get(route('tasks.index'), [
             'status_id' => $tasks->first()->status_id,
@@ -40,6 +40,7 @@ class TaskControllerTest extends TestCase
             ->assertSee($tasks->first()->name)
             ->assertSee($tasks->last()->name);
     }
+
 
     public function testCreate(): void
     {
