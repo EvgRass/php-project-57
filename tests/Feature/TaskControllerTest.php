@@ -29,16 +29,15 @@ class TaskControllerTest extends TestCase
         // Создаем 2 задачи и передаем параметры фильтрации
         $tasks = Task::factory()->count(2)->create()->get()->toArray();
 
-        $response = $this->get(route('tasks.index'), [
-            'status_id' => $tasks->first()->status_id,
-            'created_by_id' => $tasks->first()->created_by_id,
-            'assigned_to_id' => $tasks->first()->assigned_to_id,
+        $response = $this->get(route('tasks.index'), ['status_id' => $tasks[0]['status_id'],
+            'created_by_id' => $tasks[0]['created_by_id'],
+            'assigned_to_id' => $tasks[0]['assigned_to_id'],
         ]);
 
         $response->assertOk()
             ->assertViewIs('tasks.index')
-            ->assertSee($tasks->first()->name)
-            ->assertSee($tasks->last()->name);
+            ->assertSee($tasks[0]['name'])
+            ->assertSee($tasks[1]['name']);
     }
 
 
