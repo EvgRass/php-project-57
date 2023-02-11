@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 use App\Models\Label;
 use App\Models\User;
@@ -13,15 +12,13 @@ class LabelControllerTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
-    private array $factoryData;
     private Label $label;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->factoryData = Label::factory()->make()->toArray();
-        $this->label = Label::factory()->create();
         $this->user = User::factory()->create();
+        $this->label = Label::factory()->create();
     }
 
     public function testIndex(): void
@@ -38,12 +35,14 @@ class LabelControllerTest extends TestCase
 
     public function testStore(): void
     {
+        $factoryData = Label::factory()->make()->toArray();
+
         $response = $this->actingAs($this->user)
-                         ->post(route('labels.store'), $this->factoryData);
+                         ->post(route('labels.store'), $factoryData);
 
         $response->assertSessionHasNoErrors();
         $response->assertRedirect();
-        $this->assertDatabaseHas('labels', $this->factoryData);
+        $this->assertDatabaseHas('labels', $factoryData);
     }
 
     public function testEdit(): void
@@ -56,12 +55,14 @@ class LabelControllerTest extends TestCase
 
     public function testUpdate(): void
     {
+        $factoryData = Label::factory()->make()->toArray();
+
         $response = $this->actingAs($this->user)
-                         ->patch(route('labels.update', $this->label), $this->factoryData);
+                         ->patch(route('labels.update', $this->label), $factoryData);
 
         $response->assertSessionHasNoErrors();
         $response->assertRedirect();
-        $this->assertDatabaseHas('labels', $this->factoryData);
+        $this->assertDatabaseHas('labels', $factoryData);
     }
 
     public function testDestroy(): void
