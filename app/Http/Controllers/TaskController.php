@@ -20,20 +20,26 @@ class TaskController extends Controller
 
     public function index(Request $request)
     {
-        $taskStatuses = TaskStatus::pluck('name', 'id');
-        $usersCreated = User::pluck('name', 'id');
-        $usersAssigned = User::pluck('name', 'id');
+        $statusIds = Task::select('status_id')->distinct()->get();
+        $taskStatuses = TaskStatus::whereIn('id', $statusIds)->pluck('name', 'id')->all();
+
+        $usersIdCreated = Task::select('created_by_id')->distinct()->get();
+        $usersCreated = User::whereIn('id', $usersIdCreated)->pluck('name', 'id')->all();
+
+        $usersIdAssigned = Task::select('assigned_to_id')->distinct()->get();
+        $usersAssigned = User::whereIn('id', $usersIdAssigned)->pluck('name', 'id')->all();
 
         $tasks = QueryBuilder::for(Task::class)
-            ->allowedFilters([
-                AllowedFilter::exact('status_id'),
-                AllowedFilter::exact('created_by_id'),
-                AllowedFilter::exact('assigned_to_id'),
-            ])
-            ->orderBy('id')
-            ->paginate(15);
-        
-        return view('tasks.index', compact('tasks', 'taskStatuses', 'usersAssigned', 'usersCreated'));
+                                ->allowedFilters([
+                                    AllowedFilter::exact('status_id'),
+                                    AllowedFilter::exact('created_by_id'),
+                                    AllowedFilter::exact('assigned_to_id'),
+                                ])
+                                ->orderBy('id')
+                                ->paginate(15);
+        $filter = $request->get('filter');
+
+        return view('tasks.index', compact('tasks', 'taskStatuses', 'usersAssigned', 'usersCreated', 'filter'));
     }
 
     public function create()
