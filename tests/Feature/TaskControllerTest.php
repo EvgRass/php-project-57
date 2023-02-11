@@ -27,7 +27,10 @@ class TaskControllerTest extends TestCase
     public function testIndex(): void
     {
         $response = $this->get(route('tasks.index'));
+
         $response->assertOk();
+        $response->assertViewIs('tasks.index');
+        $response->assertViewHas('tasks');
     }
 
     public function testCreate(): void
