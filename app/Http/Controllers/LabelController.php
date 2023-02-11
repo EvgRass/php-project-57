@@ -13,104 +13,69 @@ class LabelController extends Controller
         $this->authorizeResource(Label::class);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $labels = Label::orderBy('id')->paginate(15);
         return view('labels.index', compact('labels'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $label = new Label();
         return view('labels.create', compact('label'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $user = Auth::user();
-        if (!isset($user)) {
-                throw new \Exception('User is not authenticated');
-        }
-
-        $data = $this->validate($request, [
+        $this->authorize('create', Label::class);
+        
+        $data = $request->validate([
             'name' => 'required|unique:labels,name',
             'description' => 'nullable',
-        ], ['unique' => __('messages.Label exists')]);
+        ]);
 
-        $label = new Label();
-        $label->fill($data);
-        $label->save();
+        $label = Label::create($data);
 
-        flash(__('messages.Label added successfully!'))->success();
-
-        return redirect()->route('labels.index');
+        return $this->redirectWithSuccess('labels.index', __('messages.Label added successfully!'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Label $label
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Label $label)
     {
+        $this->authorize('update', $label);
+        
         return view('labels.edit', compact('label'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Label  $label
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Label $label)
     {
-        $data = $this->validate($request, [
+        $this->authorize('update', $label);
+        
+        $data = $request->validate([
             'name' => 'required',
             'description' => 'nullable',
         ]);
 
-        $label->fill($data);
-        $label->save();
+        $label->update($data);
 
-        flash(__('messages.Label edited successfully!'))->success();
-
-        return redirect()->route('labels.index');
+        return $this->redirectWithSuccess('labels.index', __('messages.Label edited successfully!'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  Label $label
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Label $label)
     {
-        if ($label->tasks()->count() !== 0) {
-            flash(__('messages.Failed to delete label!'))->error();
-            return redirect()->route('labels.index');
+        $this->authorize('delete', $label);
+        
+        if ($label->tasks()->exists()) {
+            return $this->redirectWithError('labels.index', __('messages.Failed to delete label!'));
         }
 
         $label->delete();
-        flash(__('messages.Label deleted successfully!'))->success();
 
-        return redirect()->route('labels.index');
+        return $this->redirectWithSuccess('labels.index', __('messages.Label deleted successfully!'));
+    }
+
+    protected function redirectWithSuccess(string $route, string $message)
+    {
+        flash($message)->success();
+        return redirect()->route($route);
     }
 }
