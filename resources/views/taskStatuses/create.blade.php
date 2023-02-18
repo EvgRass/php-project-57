@@ -13,7 +13,7 @@
     </div>
 @endif
 
-{{ Form::model($taskStatuses, ['url' => route('task_statuses.store'), 'method' => 'post', 'class' => 'w50']) }}
+{{ Form::model($taskStatus, ['url' => route('task_statuses.store'), 'method' => 'post', 'class' => 'w50']) }}
     <div>
         {{ Form::label('name', __('messages.Name')) }}
     </div>
