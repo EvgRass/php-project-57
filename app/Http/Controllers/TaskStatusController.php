@@ -20,8 +20,9 @@ class TaskStatusController extends Controller
 
     public function create()
     {
-        $taskStatuses = new TaskStatus();
-        return view('taskStatuses.create', compact('taskStatuses'));
+        return view('taskStatuses.create', [
+            'taskStatus' => []
+        ]);
     }
 
     public function store(Request $request)
